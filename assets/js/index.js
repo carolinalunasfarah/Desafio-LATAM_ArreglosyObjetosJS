@@ -2,48 +2,48 @@ let listProperties = [
     {
         id: 1,
         name: "Country house",
-        description: "Un lugar ideal para descansar de la ciudad",
-        src: "assets/img/2_countryhouse.jpg",
+        description: "Be near the nature and relax from the city noises",
+        image: "assets/img/countryhouse.jpg",
         rooms: 2,
         m: 170,
     },
     {
         id: 2,
         name: "Beach house",
-        description: "Despierta tus días oyendo el oceano",
-        image: "assets/img/5_beachhouse.jpg",
+        description: "Escape from the city and wake up listening to the sea",
+        image: "assets/img/beachhouse.jpg",
         rooms: 4,
         m: 130,
     },
     {
         id: 3,
-        name: "Downtond house",
-        description: "Ten cerca de ti todo lo que necesitas",
-        image: "assets/img/3_townhouse.jpg",
-        rooms: 2,
+        name: "Downtown house",
+        description: "A great place near everything you need",
+        image: "assets/img/townhouse.jpg",
+        rooms: 3,
         m: 80,
     },
     {
         id: 4,
         name: "Tailer",
-        description: "Conviertete en un nómada del mundo sin salir de tu casa",
-        image: "assets/img/4_trailer.jpg",
+        description: "There's no need to leave home to travel the world",
+        image: "assets/img/trailer.jpg",
         rooms: 1,
         m: 6,
     },
     {
         id: 5,
         name: "Apartment",
-        description: "Desde las alturas todo se ve mejor",
-        image: "assets/img/6_apartment.jpg",
+        description: "Everything looks better from the heights",
+        image: "assets/img/apartment.jpg",
         rooms: 3,
         m: 200,
     },
     {
         id: 6,
         name: "Mansion",
-        description: "Vive una vida lujosa en la mansión de tus sueños ",
-        image: "assets/img/1_mansion.jpg",
+        description: "Live your luxury life in your dream house",
+        image: "assets/img/mansion.jpg",
         rooms: 5,
         m: 500,
     },
@@ -54,7 +54,7 @@ let inputs = Array.from(document.querySelectorAll("nav input"));
 let propertiesList = document.getElementById("propertiesList");
 let filter = document.querySelector(".filter");
 let count = document.getElementById("count");
-let search = document.getElementsByClassName("search");
+let search = document.querySelector("#search");
 
 function showProperty(listProperties) {
     count.innerHTML = listProperties.length;
@@ -64,20 +64,18 @@ function showProperty(listProperties) {
         let newItem = document.createElement("div");
         newItem.classList.add("item");
         newItem.innerHTML = `
-      <div class = "item_container">
-        <article class = "item_image">
-          <img src= "${item.image}" alt="${item.name}">
-        </article>
-        <article class = "item_info">
-          <h5 class = "item_name">${item.name}</h5>
-          <p class = "item_description">${item.description}</p>
-        </article>
-        <article>
-          <p class = "item_rooms">Rooms: ${item.rooms}</p>
-          <p class = "item_m">Meters: ${item.m}</p>
-        </article>
-        <button class = "item_detailes">Details</button>
-      </div>
+          <article class = "item_image">
+            <img src= "${item.image}" alt="${item.name}">
+          </article>
+          <article class = "item_info">
+            <h4 class = "item_name">${item.name}</h4>
+            <p class = "item_description">${item.description}</p>
+          </article>
+          <article class = "item_rym">
+            <p class = "item_rooms">Rooms: ${item.rooms}</p>
+            <p class = "item_m">Meters: ${item.m}</p>
+          </article>
+          <button class = "item_details">Details</button>
       `;
 
         propertiesList.appendChild(newItem);
@@ -88,7 +86,7 @@ showProperty(listProperties);
 
 const filterProperties = () => {
     let [{ value: rooms }, { value: smfrom }, { value: smto }] = inputs;
-    if (!rooms && !smfrom && !smto) {
+    if (!rooms || !smfrom || !smto) {
         alert("Please enter values");
         return false;
     }
