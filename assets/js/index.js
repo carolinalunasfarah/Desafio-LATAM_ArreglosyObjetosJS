@@ -34,7 +34,7 @@ let listProperties = [
     {
         id: 5,
         name: "Apartment",
-        description: "Everything looks better from the heights",
+        description: "Everything looks better from up above",
         image: "assets/img/apartment.jpg",
         rooms: 3,
         m: 200,
@@ -55,6 +55,7 @@ let propertiesList = document.getElementById("propertiesList");
 let filter = document.querySelector(".filter");
 let count = document.getElementById("count");
 let search = document.querySelector("#search");
+let refresh = document.querySelector("#refresh");
 
 function showProperty(listProperties) {
     count.innerHTML = listProperties.length;
@@ -72,10 +73,10 @@ function showProperty(listProperties) {
             <p class = "item_description">${item.description}</p>
           </article>
           <article class = "item_rym">
-            <p class = "item_rooms">Rooms: ${item.rooms}</p>
-            <p class = "item_m">Meters: ${item.m}</p>
+            <p class = "item_rooms">Rooms: <b>${item.rooms}</b></p>
+            <p class = "item_m">Meters: <b>${item.m}</b></p>
           </article>
-          <button class = "item_details">Details</button>
+          <button class = "item_details">More Details</button>
       `;
 
         propertiesList.appendChild(newItem);
@@ -98,3 +99,10 @@ const filterProperties = () => {
 };
 
 search.addEventListener("click", filterProperties);
+
+let filterRefresh = () => {
+    inputs.forEach((input) => (input.value = ""));
+    showProperty(listProperties);
+};
+
+refresh.addEventListener("click", filterRefresh)

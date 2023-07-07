@@ -4,10 +4,10 @@
 }
 
 body{
-    background: #4e4d4d;
-    color: white;
+    color: black;
     display: grid;
     grid-template-columns: 3fr 10fr;
+    background: #4e4d4d63;
 }
 
 /* NAV */
@@ -31,6 +31,7 @@ nav input {
 
 .smeteroom {
     display: flex;
+    justify-content: space-around;
 }
 
 .from {
@@ -41,6 +42,14 @@ nav input {
     background-color: rgba(255, 166, 0);
     height: 2rem;
     border-radius: 5px;
+    border: none;
+}
+
+#refresh {
+    background-color: rgb(196, 196, 7);
+    height: 2rem;
+    border-radius: 5px;
+    border: none;
 }
 
 /* PROPERTIES */
@@ -62,9 +71,15 @@ main {
 
 .item {
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.068);
+    background: rgba(255, 255, 255, 0.5);
     box-shadow: 0px 0px 7px 1px rgba(255, 255, 255, 0.39);
     border-radius: 5px;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    transition: ease 2s;
+    cursor: default;
 }
 
 img {
@@ -85,4 +100,11 @@ img {
     background-color: rgb(78, 193, 221);
     height: 2rem;
     border-radius: 5px;
+    border: none;
+}
+
+.item_details:hover {
+    filter: grayscale(100%);
+    color: white;
+    transition: ease 2s;
 }

@@ -10,7 +10,13 @@
             rel="stylesheet"
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous" />
+        <!-- css -->
         <link rel="stylesheet" href="assets/css/styles.css" />
+        <!-- favicon -->
+        <link
+            rel="shortcut icon"
+            href="assets/img/favicon.ico"
+            type="image/x-icon" />
     </head>
 
     <body>
@@ -18,10 +24,7 @@
             <section class="filter">
                 <div>
                     <p>Rooms:</p>
-                    <input
-                        name="rooms"
-                        class="form-control"
-                        type="text" />
+                    <input name="rooms" class="form-control" type="text" />
                 </div>
                 <div>
                     <span>Squate meters</span>
@@ -41,10 +44,12 @@
                                 type="text" />
                         </article>
                     </div>
+                    <div class="smeteroom">
+                        <button id="search">Search</button>
+                        <button id="refresh">Refresh</button>
+                    </div>
                 </div>
             </section>
-
-            <button id="search">Search</button>
         </nav>
 
         <main>
